@@ -73,6 +73,13 @@ public class ImageCalculator {
 
     }
 
+    /**
+     * Berechnet die Distanz zwischen den (dunklen) Punkten
+     *
+     * @param filePaths      Eine Liste von Dateipfaden
+     * @param koordinatenMap Die Koordinaten eines dunklen Punktes (gespeichert in einer Map)
+     * @return Gibt die Distanz in einer Map zurück (key: Name des Bildes, value: Distanz)
+     */
     private static Map<String, Double> calculateDistance(List<Path> filePaths, Map<String, Point> koordinatenMap) {
         List<String> dateiPrefixe = new ArrayList<>();
         filePaths.forEach(path -> dateiPrefixe.add(path.getFileName().toString().split("_")[0]));
@@ -94,6 +101,12 @@ public class ImageCalculator {
         return distanceMap;
     }
 
+    /**
+     * Ermittelt den dunkelsten Punkt
+     *
+     * @param pfad Pfad zur Datei
+     * @return Gibt einen {@link Point} zurück
+     */
     private static Point getCoordinates(Path pfad) {
         final int radius = 15;
         final int durchmesser = 2 * radius;
